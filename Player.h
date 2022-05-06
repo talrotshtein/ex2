@@ -15,7 +15,7 @@ class Player{
     static char* allocateAndCopy(const char* data, int size);
 
 public:
-    Player(char* name, int HP, int force);
+    Player(char* name, int = 100, int force = 5);
     Player(const Player& player);
     ~Player();
     Player& operator=(const Player&);
