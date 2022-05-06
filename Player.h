@@ -6,6 +6,8 @@
 #define EX2_PLAYER_H
 
 class Player{
+
+private:
     char* m_name;
     int m_coins;
     int m_force;
