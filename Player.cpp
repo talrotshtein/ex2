@@ -36,6 +36,7 @@ Player& Player::operator=(const Player& player){
     delete[] name;
     name = allocateAndCopy(player.name, strlen(player.name));
     force = player.force;
+    return *this;
 }
 
 Player::~Player() {
@@ -64,32 +65,40 @@ int Player::getLevel()
     return this->level;
 }
 
-void Player::buff(int force)
+void Player::buff(int forceToAdd)
 {
-    this->force+=force;
+    if(forceToAdd>0){
+        this->force += forceToAdd;
+    }
 }
 
-void Player::heal(int HP)
+void Player::heal(int HPToAdd)
 {
-    if(this->HP + HP >= this->maxHP)
+    if(HPToAdd <= 0){
+        return;
+    }
+    if(this->HP + HPToAdd >= this->maxHP)
     {
         this->HP = this->maxHP;
     }
     else
     {
-        this->HP += HP;
+        this->HP += HPToAdd;
     }
 }
 
-void Player::damage(int HP)
+void Player::damage(int HPToRemove)
 {
-    if(this->HP - HP <=0)
+    if(HPToRemove <= 0){
+        return;
+    }
+    if(this->HP - HPToRemove <= 0)
     {
         this->HP = 0;
     }
     else
     {
-        this->HP -= HP;
+        this->HP -= HPToRemove;
     }
 }
 
@@ -117,6 +126,10 @@ bool Player::pay(int coinsToPay) {
         coins-=coinsToPay;
         return true;
     }
+}
+
+int Player::getAttackStrength() {
+    return level + force;
 }
 
 

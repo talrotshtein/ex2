@@ -23,9 +23,9 @@ public:
     void printInfo();
     void levelUp();
     int getLevel();
-    void buff(int force);
-    void heal(int HP);
-    void damage(int HP);
+    void buff(int forceToAdd);
+    void heal(int HPToAdd);
+    void damage(int HPToRemove);
     bool isKnockedOut();
     void addCoins(int coinsToAdd);
     bool pay(int coinsToPay);
