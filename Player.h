@@ -12,6 +12,8 @@ class Player{
     int HP;
     int level;
 
+    static char* allocateAndCopy(const char* data, int size);
+
 public:
     Player(char* name, int HP, int force);
     Player(const Player& player);
