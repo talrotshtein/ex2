@@ -64,6 +64,35 @@ int Player::getLevel()
     return this->level;
 }
 
+void Player::buff(int force)
+{
+    this->force+=force;
+}
+
+void Player::heal(int HP)
+{
+    if(this->HP + HP >= this->maxHP)
+    {
+        this->HP = this->maxHP;
+    }
+    else
+    {
+        this->HP += HP;
+    }
+}
+
+void Player::damage(int HP)
+{
+    if(this->HP - HP <=0)
+    {
+        this->HP = 0;
+    }
+    else
+    {
+        this->HP -= HP;
+    }
+}
+
 bool Player::isKnockedOut() {
     if(HP == 0){
         return true;
