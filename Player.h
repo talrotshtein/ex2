@@ -9,6 +9,7 @@ class Player{
     char* name;
     int coins;
     int force;
+    int maxHP;
     int HP;
     int level;
 
@@ -25,9 +26,9 @@ public:
     void buff(int force);
     void heal(int HP);
     void damage(int HP);
-    void isKnockedOut();
-    void addCoins(int coins);
-    bool pay(int coins);
+    bool isKnockedOut();
+    void addCoins(int coinsToAdd);
+    bool pay(int coinsToPay);
     int getAttackStrength();
 };
 
