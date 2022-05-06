@@ -6,30 +6,30 @@
 #define EX2_PLAYER_H
 
 class Player{
-    char* name;
-    int coins;
-    int force;
-    int maxHP;
-    int HP;
-    int level;
+    char* m_name;
+    int m_coins;
+    int m_force;
+    int m_maxHP;
+    int m_HP;
+    int m_level;
 
     static char* allocateAndCopy(const char* data, int size);
 
 public:
-    Player(char* name, int = 100, int force = 5);
+    Player(char* name, int HP = 100, int force = 5);
     Player(const Player& player);
     ~Player();
     Player& operator=(const Player& player);
     void printInfo();
     void levelUp();
-    int getLevel();
+    int getLevel() const;
     void buff(int forceToAdd);
     void heal(int HPToAdd);
     void damage(int HPToRemove);
-    bool isKnockedOut();
+    bool isKnockedOut() const;
     void addCoins(int coinsToAdd);
     bool pay(int coinsToPay);
-    int getAttackStrength();
+    int getAttackStrength() const;
 };
 
 
