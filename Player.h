@@ -18,7 +18,7 @@ public:
     Player(char* name, int = 100, int force = 5);
     Player(const Player& player);
     ~Player();
-    Player& operator=(const Player&);
+    Player& operator=(const Player& player);
     void printInfo();
     void levelUp();
     int getLevel();
