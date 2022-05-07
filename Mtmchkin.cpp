@@ -3,13 +3,16 @@
 //
 #include "Mtmchkin.h"
 
-Mtmchkin::Mtmchkin(const char *playerName, const Card *cardsArray, int numOfCards) {
-    Player player(playerName);
-    this->m_player = player;
-    this->m_cardArray = cardsArray;
-    this->m_numOfCards = numOfCards;
-    this->m_status = GameStatus::MidGame;
-    this->m_currentCard = 0;
+Mtmchkin::Mtmchkin(const char *playerName, const Card *cardsArray, int numOfCards) :
+    m_player(Player(playerName)),
+    m_cardArray(cardsArray),
+    m_numOfCards(numOfCards),
+    m_status(GameStatus::MidGame),
+    m_currentCard(0)
+{}
+
+Mtmchkin::~Mtmchkin() {
+    delete[] m_cardArray;
 }
 
 GameStatus Mtmchkin::getGameStatus() const
