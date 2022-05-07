@@ -4,7 +4,7 @@
 #include "Player.h"
 #include "utilities.h"
 
-const int MAX_LEVEL = 10;
+static const int MAX_LEVEL = 10;
 
 Player::Player(const char* name, int HP, int force)
 {

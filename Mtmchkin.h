@@ -65,6 +65,9 @@ private:
     int m_numOfCards;
     GameStatus m_status;
     int m_currentCard;
+
+    bool CheckWin();
+    bool CheckLoss();
 };
 
 
