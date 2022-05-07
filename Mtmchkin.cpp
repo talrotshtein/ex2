@@ -19,7 +19,17 @@ GameStatus Mtmchkin::getGameStatus() const
 
 void Mtmchkin::playNextCard()
 {
-
+    this->m_cardArray[this->m_currentCard].printInfo();
+    this->m_cardArray[this->m_currentCard].applyEncounter(this->m_player);
+    this->m_player.printInfo();
+    if(this->m_currentCard == this->m_numOfCards-1)
+    {
+        this->m_currentCard = 0;
+    }
+    else
+    {
+        this->m_currentCard++;
+    }
 }
 
 bool Mtmchkin::isOver()

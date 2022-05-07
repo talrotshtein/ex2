@@ -6,7 +6,7 @@
 
 const int MAX_LEVEL = 10;
 
-Player::Player(char* name, int HP, int force)
+Player::Player(const char* name, int HP, int force)
 {
     this->m_name = allocateAndCopy(name, strlen(name));
     this->m_HP = HP;
