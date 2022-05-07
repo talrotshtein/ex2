@@ -57,7 +57,6 @@ public:
      */
     GameStatus getGameStatus() const;
 
-    ~Mtmchkin();
 
 private:
     Player m_player;
