@@ -18,7 +18,7 @@ private:
     static char* allocateAndCopy(const char* data, int size);
 
 public:
-    Player(char* name, int HP = 100, int force = 5);
+    Player(char* name, int HP, int force);
     Player(const Player& player);
     ~Player();
     Player& operator=(const Player& player);
