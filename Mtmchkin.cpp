@@ -4,7 +4,12 @@
 #include "Mtmchkin.h"
 
 Mtmchkin::Mtmchkin(const char *playerName, const Card *cardsArray, int numOfCards) {
-    Player player1(playerName);
+    Player player(playerName);
+    this->m_player = player;
+    this->m_cardArray = cardsArray;
+    this->m_numOfCards = numOfCards;
+    this->m_status = GameStatus::MidGame;
+    this->m_currentCard = 0;
 }
 
 GameStatus Mtmchkin::getGameStatus() const

@@ -61,11 +61,10 @@ public:
 
 private:
     Player m_player;
-    Card* cardArray;
-    int numOfCards;
+    const Card* m_cardArray;
+    int m_numOfCards;
     GameStatus m_status;
-
-
+    int m_currentCard;
 };
 
 
