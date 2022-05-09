@@ -7,13 +7,19 @@ static const int MAX_LEVEL = 10;
 
 Mtmchkin::Mtmchkin(const char *playerName, const Card *cardsArray, int numOfCards) :
     m_player(Player(playerName)),
-    m_cardArray(cardsArray),
+    m_cardArray(allocateAndCopyCardArray(cardsArray, numOfCards)),
     m_numOfCards(numOfCards),
     m_status(GameStatus::MidGame),
     m_currentCard(0)
 {}
 
-
+Card *Mtmchkin::allocateAndCopyCardArray(const Card *cardsArray, int numOfCards) {
+    Card* tempCardsArray = new Card[numOfCards];
+    for (int i = 0; i < numOfCards; ++i) {
+        tempCardsArray[i] = cardsArray[i];
+    }
+    return tempCardsArray;
+}
 
 GameStatus Mtmchkin::getGameStatus() const
 {
@@ -57,7 +63,11 @@ bool Mtmchkin::CheckLoss() {
     return false;
 }
 
-bool Mtmchkin::isOver()
+Mtmchkin::~Mtmchkin() {
+    delete[] this->m_cardArray;
+}
+
+ bool Mtmchkin::isOver() const
 {
     if(this->m_status == GameStatus::MidGame)
     {

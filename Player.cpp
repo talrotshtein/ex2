@@ -5,13 +5,28 @@
 #include "utilities.h"
 
 static const int MAX_LEVEL = 10;
+static const int MAX_HP = 100;
+static const int DEFAULT_FORCE = 5;
 
 Player::Player(const char* name, int HP, int force)
 {
     this->m_name = allocateAndCopy(name, strlen(name));
-    this->m_HP = HP;
-    this->m_maxHP = HP;
-    this->m_force = force;
+    if(HP > 0){
+        this->m_HP = HP;
+        this->m_maxHP = HP;
+    }
+    else if(HP<=0)
+    {
+        this->m_HP = MAX_HP;
+        this->m_maxHP = MAX_HP;
+    }
+    if(force >0){
+        this->m_force = force;
+    }
+    else if(force<=0)
+    {
+        this->m_force = DEFAULT_FORCE;
+    }
     this->m_coins = 0;
     this->m_level = 1;
 }

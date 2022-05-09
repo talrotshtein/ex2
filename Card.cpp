@@ -5,7 +5,12 @@
 
 Card::Card(CardType type, const CardStats &stats) {
     m_effect = type;
-    m_stats = stats;
+    m_stats.loot = stats.loot;
+    m_stats.cost = stats.cost;
+    m_stats.buff = stats.buff;
+    m_stats.heal = stats.heal;
+    m_stats.hpLossOnDefeat = stats.hpLossOnDefeat;
+    m_stats.force = stats.force;
 }
 
 void Card::applyEncounter(Player& player) const

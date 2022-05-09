@@ -29,6 +29,7 @@ public:
     */
     Mtmchkin(const char* playerName, const Card* cardsArray, int numOfCards);
 
+    ~Mtmchkin();
 
     /*
      * Play the next Card - according to the instruction in the exercise document
@@ -46,7 +47,7 @@ public:
      *          True if the game ended
      *          False otherwise
      */
-    bool isOver();
+     bool isOver() const;
 
 
     /*
@@ -67,6 +68,7 @@ private:
 
     bool CheckWin();
     bool CheckLoss();
+    static Card* allocateAndCopyCardArray(const Card* cardsArray, int numOfCards);
 };
 
 
